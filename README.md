@@ -1,44 +1,39 @@
-Setup & Run Instructions (Using uv)
-
+**Setup & Run Instructions (Using uv)**
 1.Install uv (If Not Installed)
-
-Windows (PowerShell):
+ Windows (PowerShell)
 pip install uv
-OR (recommended method):
+
+OR (Recommended Method):
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
-Mac/Linux:
+ Mac / Linux
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-Verify installation:
+Verify Installation
 uv --version
 
-2.Install Dependencies
+2️.Install Dependencies
 
-pyproject.toml exists:
+Make sure pyproject.toml exists in the root directory, then run:
 uv sync
 
-3.Run the Application
+3️.Run the Application
 
-Please run the below command in the folder where the run.py file is present:
+Navigate to the folder where run.py is located and execute:
 uv run run.py
 
+**API Documentation**
+Once the server is running, access the interactive API documentation:
 
-
-
-
-API Documentation
-
-After starting the server:
-
-Swagger UI:
+🔹 Swagger UI
 http://127.0.0.1:8000/docs
 
-API Endpoints
-1.Create Address
+🔗 API Endpoints
+1️.Create Address
 
 POST /addresses
 
+Request Body:
 {
   "name": "Home",
   "street": "FC Road",
@@ -51,19 +46,25 @@ POST /addresses
 
 GET /addresses/{address_id}
 
-3. Update Address (Partial Update Supported)
+Retrieves address details by ID.
+
+3.Update Address (Partial Update Supported)
 
 PUT /addresses/{address_id}
 
-Example:
+Only the provided fields will be updated.
 
+Example:
 {
   "city": "Mumbai"
 }
 
-
-Only provided fields will be updated.
-
 4.Delete Address
 
 DELETE /addresses/{address_id}
+Deletes an address by ID.
+
+
+FastAPI
+
+uv (Python package manager & runner)
